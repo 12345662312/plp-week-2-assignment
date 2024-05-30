@@ -1,0 +1,41 @@
+# File Creation
+def create_file():
+    try:
+        with open("my_file.txt", "w") as file:
+            file.write("This is line 1\n")
+            file.write("12345\n")
+            file.write("Another line here\n")
+        print("File 'my_file.txt' created successfully.")
+    except Exception as e:
+        print(f"Error creating file: {e}")
+
+# File Reading and Display
+def read_file():
+    try:
+        with open("my_file.txt", "r") as file:
+            content = file.read()
+            print("Contents of 'my_file.txt':")
+            print(content)
+    except FileNotFoundError:
+        print("File 'my_file.txt' not found.")
+    except PermissionError:
+        print("Permission denied to access 'my_file.txt'.")
+    except Exception as e:
+        print(f"Error reading file: {e}")
+
+# File Appending
+def append_to_file():
+    try:
+        with open("my_file.txt", "a") as file:
+            file.write("Appending line 1\n")
+            file.write("67890\n")
+            file.write("Yet another line\n")
+        print("Content appended to 'my_file.txt' successfully.")
+    except Exception as e:
+        print(f"Error appending to file: {e}")
+
+
+create_file()
+read_file()
+append_to_file()
+read_file()
